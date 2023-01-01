@@ -48,6 +48,10 @@ npm start
 
 This will start the server at `http://localhost:3000` (or your specified PORT).
 
+You can access the development version of the application at: [Development URL](http://localhost:3000)
+
+The production version of the application is available at: [Production URL](https://www.example.com)
+
 ## Configuration
 
 This project uses environment variables for configuration. Copy the `.env.example` file to a new file named `.env` and fill in the appropriate variables.
