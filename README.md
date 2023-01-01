@@ -108,7 +108,8 @@ npm test
 
 2. **FAQs**: If there are common questions about your project, consider including a FAQs section.
 
-```markdown
+```
+
 ## FAQs
 
 **Q: Question 1?**
