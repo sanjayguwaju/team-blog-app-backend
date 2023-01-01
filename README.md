@@ -2,6 +2,12 @@
 
 TeamBlog is a collaborative blogging platform designed for teams to share and manage their content effectively.
 
+## Homepage
+
+Here's what the homepage of our application looks like:
+
+![Homepage screenshot](https://www.example.com/homepage.png)
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
