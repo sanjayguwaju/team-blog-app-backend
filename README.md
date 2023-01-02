@@ -8,6 +8,18 @@ Here's what the homepage of our application looks like:
 
 ![Homepage screenshot](https://www.example.com/homepage.png)
 
+## Login Page
+
+Here's what the login page of our application looks like:
+
+![Login page screenshot](https://www.example.com/login.png)
+
+## Signup Page
+
+And here's the signup page:
+
+![Signup page screenshot](https://www.example.com/signup.png)
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
