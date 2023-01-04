@@ -20,6 +20,18 @@ And here's the signup page:
 
 ![Signup page screenshot](https://www.example.com/signup.png)
 
+## Write Page
+
+Here's what the write page of our application looks like:
+
+![Write page screenshot](https://www.example.com/write.png)
+
+## Dashboard Page
+
+And here's the dashboard page:
+
+![Dashboard page screenshot](https://www.example.com/dashboard.png)
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
