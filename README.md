@@ -98,6 +98,53 @@ This project uses several dependencies, including:
 
 Contributions are welcome! Please read the [contributing guide](CONTRIBUTING.md) to get started.
 
+## Tests
+
+To run the tests for the application, use the following command:
+
+```bash
+npm test
+
+
+2. **FAQs**: If there are common questions about your project, consider including a FAQs section.
+
+```markdown
+## FAQs
+
+**Q: Question 1?**
+A: Answer to question 1.
+
+**Q: Question 2?**
+A: Answer to question 2.
+
+## Changelog
+
+**v1.0.0**
+- Initial release.
+
+**v1.0.1**
+- Bug fixes.
+
+## Acknowledgments
+
+- Name of the person
+- Name of the project
+
+## Contact Information
+
+For any questions or comments, please contact us at:
+
+- Email: your-email@example.com
+- Twitter: [@yourhandle](https://twitter.com/yourhandle)
+
+
+## Contributors
+
+| Name | Image | Email |
+| --- | --- | --- |
+| John Doe | ![John Doe](https://www.example.com/john_doe.png) | john.doe@example.com |
+| Jane Doe | ![Jane Doe](https://www.example.com/jane_doe.png) | jane.doe@example.com |
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
