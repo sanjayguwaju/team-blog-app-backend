@@ -22,6 +22,18 @@ exports.getAllUsers = async (req, res) => {
     }
   };
 
+  exports.getUserById = async (req, res) => { 
+    try{
+      const users = await User.findById(req.params.id);
+      if(!users){
+        return res.status(404).send({message:'User not found'});
+      }
+      res.status(200).json(users);
+    } catch (error) {
+      res.status(500).send({error:'Error fetching user'});
+    }
+  }; 
+
   exports.deleteUser = async (req, res) => {
     try {
       const userId = req.params.id;
@@ -38,7 +50,6 @@ exports.getAllUsers = async (req, res) => {
       res.status(500).json({ message: 'Error deleting user', error: error.message });
     }
   };
-
 
   exports.updateUser = async (req, res) => {
     try{
