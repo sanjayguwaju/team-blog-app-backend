@@ -22,6 +22,22 @@ exports.getAllUsers = async (req, res) => {
     }
   };
 
+  exports.updateUser = async (req, res) => {
+    try{
+      const userId = req.params.id;
+      const updatedData = req.body;
+
+    const user = await User.findByIdAndUpdate(userId, updatedData, { new: true });
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating user'});
+  }
+};
   exports.deleteUser = async (req, res) => {
     try {
       const userId = req.params.id;
@@ -49,4 +65,4 @@ exports.getUserById = async (req, res) => {
     } catch (error) {
       res.status(500).send({error:'Error fetching user'});
     }
-  };  
+  }; 
