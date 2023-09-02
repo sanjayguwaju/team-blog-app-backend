@@ -22,7 +22,7 @@ exports.getAllUsers = async (req, res) => {
     }
   };
 
-  exports.updateUser = async (req, res) => {
+exports.updateUser = async (req, res) => {
     try{
       const userId = req.params.id;
       const updatedData = req.body;
@@ -38,7 +38,8 @@ exports.getAllUsers = async (req, res) => {
     res.status(500).json({ message: 'Error updating user'});
   }
 };
-  exports.deleteUser = async (req, res) => {
+
+exports.deleteUser = async (req, res) => {
     try {
       const userId = req.params.id;
   
@@ -53,7 +54,7 @@ exports.getAllUsers = async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: 'Error deleting user', error: error.message });
     }
-  };
+};
 
 exports.getUserById = async (req, res) => { 
     try{
@@ -65,4 +66,4 @@ exports.getUserById = async (req, res) => {
     } catch (error) {
       res.status(500).send({error:'Error fetching user'});
     }
-  }; 
+}; 
