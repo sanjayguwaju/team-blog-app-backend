@@ -4,10 +4,10 @@ const createBlogPost = async (req, res) => {
   try {
     const { title, content, author, tags } = req.body;
 
-    // Validate input data
-    if (!title || !content || !author || !tags) {
-      return res.status(400).json({ message: 'Missing required fields' });
-    }
+    // // Validate input data
+    // if (!title || !content || !author || !tags) {
+    //   return res.status(400).json({ message: 'Missing required fields' });
+    // }
 
     // Create a new blog post
     const newBlogPost = new BlogPost({
@@ -18,9 +18,9 @@ const createBlogPost = async (req, res) => {
     });
 
     // Save the new blog post to the database
-    await blogPost.save();
+    await newBlogPost.save();
 
-    res.status(201).json(blogPost);
+    res.status(201).json(newBlogPost);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Error creating blog post' });
