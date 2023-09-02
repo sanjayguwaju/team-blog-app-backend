@@ -32,3 +32,5 @@ public/build/
 yarn-error.log
 .yarn
 .yarnrc.yml
+.pnp.cjs
+.pnp.loader.mjs
