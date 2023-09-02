@@ -4,6 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/user-routes');
+const blogRoutes = require('./routes/blog-post-routes');
 
 
 // Server function stored in app variable
@@ -26,6 +27,7 @@ mongoose
 
 // Use user routes
 app.use("/users",userRoutes);
+app.use("/blogs",blogRoutes);
 
 // Health check endpoint
   app.get('/health', (req, res) => {
