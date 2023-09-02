@@ -32,4 +32,3 @@ public/build/
 yarn-error.log
 .yarn
 .yarnrc.yml
-yarn.lock
