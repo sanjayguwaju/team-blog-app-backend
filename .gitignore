@@ -35,3 +35,7 @@ yarn-error.log
 .yarnrc.yml
 .pnp.cjs
 .pnp.loader.mjs
+
+# npm
+package-lock.json
+
