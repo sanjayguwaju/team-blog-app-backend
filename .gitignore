@@ -32,3 +32,6 @@ public/build/
 yarn-error.log
 .yarn
 .yarnrc.yml
+
+# npm
+package-lock.json
