@@ -22,6 +22,37 @@ const createBlogPost = async (req, res) => {
   }
 };
 
+
+
+const updateBlogPost = async (req, res) => {
+  try{
+    const blogId = req.params.id;
+    const updatedData = req.body;
+
+  const blogPost = await BlogPost.findByIdAndUpdate(blogId, updatedData, { new: true });
+
+  if (!blogPost) {
+    return res.status(404).json({ message: 'Post not found' });
+  }
+
+  res.status(200).json(blogPost);
+} catch (error) {
+  res.status(500).json({ message: 'Error updating post'});
+}
+};
+
+
+const getAllBlogPost = async (req, res) => {
+  try {
+    const allBlogPost = await BlogPost.find();
+    res.status(200).send(allBlogPost);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 module.exports = {
-  createBlogPost
+  createBlogPost,
+  updateBlogPost,
+  getAllBlogPost
 };
