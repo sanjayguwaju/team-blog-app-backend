@@ -4,4 +4,6 @@ const blogPostController = require('../controllers/blog-post-controller');
 
 blogRouter.post('/createblog', blogPostController.createBlogPost);
 blogRouter.put('/updatelblog/:id', blogPostController.updateBlogPost);
+blogRouter.get('/getallblog', blogPostController.getAllBlogPost);
+
 module.exports = blogRouter;
