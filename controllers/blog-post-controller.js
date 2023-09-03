@@ -41,7 +41,6 @@ const updateBlogPost = async (req, res) => {
 }
 };
 
-
 const getAllBlogPost = async (req, res) => {
   try {
     const allBlogPost = await BlogPost.find();
