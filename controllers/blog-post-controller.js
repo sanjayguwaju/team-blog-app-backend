@@ -3,12 +3,7 @@ const BlogPost = require('../models/blog-post-model');
 const createBlogPost = async (req, res) => {
   try {
     const { title, content, author, tags } = req.body;
-
-    // // Validate input data
-    // if (!title || !content || !author || !tags) {
-    //   return res.status(400).json({ message: 'Missing required fields' });
-    // }
-
+    
     // Create a new blog post
     const newBlogPost = new BlogPost({
       title,
