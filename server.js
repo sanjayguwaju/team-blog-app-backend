@@ -34,7 +34,6 @@ app.use("/blogs",blogRoutes);
   res.status(200).send('API is working fine');
   });
 
-    
 // Start server in the port 3000
 app.listen(3000, () => {
     console.log('Server is listening on port 3000');

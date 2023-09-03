@@ -29,9 +29,12 @@ out/
 public/build/
 
 # Yarn
+yarn.lock
 yarn-error.log
 .yarn
 .yarnrc.yml
 
 # npm
 package-lock.json
+
+.vscode/
