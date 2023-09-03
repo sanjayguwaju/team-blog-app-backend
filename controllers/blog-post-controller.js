@@ -50,8 +50,26 @@ const getAllBlogPost = async (req, res) => {
   }
 };
 
+const deleteBlogPost = async (req, res) => {
+  try {
+    const blogId = req.params.id;
+
+    // Find and remove the blog post by ID from the database
+    const deletedBlog = await BlogPost.findByIdAndDelete(blogId);
+
+    if (!deletedBlog) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'blog post deleted', deletedBlog });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting blog post', error: error.message });
+  }
+};
+
 module.exports = {
   createBlogPost,
   updateBlogPost,
-  getAllBlogPost
+  getAllBlogPost,
+  deleteBlogPost
 };
