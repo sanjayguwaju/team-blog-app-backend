@@ -41,7 +41,18 @@ const updateBlogPost = async (req, res) => {
 }
 };
 
+
+const getAllBlogPost = async (req, res) => {
+  try {
+    const allBlogPost = await BlogPost.find();
+    res.status(200).send(allBlogPost);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
 module.exports = {
   createBlogPost,
-  updateBlogPost
+  updateBlogPost,
+  getAllBlogPost
 };
