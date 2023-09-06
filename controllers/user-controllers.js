@@ -24,6 +24,98 @@ exports.registerUser = async (req, res) => {
 };
 
 
+
+
+
+
+
+exports.login = async (req, res) => {
+  // Find the user
+  const user = await User.findOne({ username: req.body.username });
+
+  if (!user) {
+    // User not found, handle the scenario here (e.g., return an error response).
+    return res.status(404).json({ error: 'User not found' });
+  }
+  
+  // Check password
+  const validPassword = await bcrypt.compare(req.body.password, user.password);
+  
+  if (!validPassword) return res.status(400).send('Invalid username or password');
+
+  // Create tokens
+  const accessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1hr' });
+  const refreshToken = jwt.sign({ userId: user._id }, process.env.REFRESH_TOKEN_SECRET);
+
+  // Update refresh token
+  user.refreshToken = refreshToken;
+  await user.save();
+
+  // Send tokens
+  res.cookie('refreshToken', refreshToken, { httpOnly: true });
+  res.json({ accessToken });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+exports.refreshToken = async (req, res) => {
+  // Get user ID from request object
+  const userId = req.userId;
+
+  // Find the user
+  const user = await User.findById(userId);
+
+  if (!user) {
+    // User not found, handle the scenario here (e.g., return an error response).
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // Create new tokens
+  const newAccessToken = jwt.sign({ userId: user._id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1hr' });
+  const newRefreshToken = jwt.sign({ userId: user._id }, process.env.REFRESH_TOKEN_SECRET);
+
+  // Update refresh token in database
+  user.refreshToken = newRefreshToken;
+  await user.save();
+
+  // Send tokens
+  res.cookie('refreshToken', newRefreshToken, { httpOnly: true });
+  res.json({ accessToken: newAccessToken });
+};
+
+exports.logout = async (req, res) => {
+  // Get user ID from request object
+  const userId = req.userId;
+
+  // Find the user
+  const user = await User.findById(userId);
+
+  if (!user) {
+    // User not found, handle the scenario here (e.g., return an error response).
+    return res.status(404).json({ error: 'User not found' });
+  }
+
+  // Remove refresh token
+  user.refreshToken = null;
+  await user.save();
+
+  // Clear cookie
+  res.clearCookie('refreshToken');
+
+  res.sendStatus(204); // Success with no content to send
+};
+
 exports.getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
