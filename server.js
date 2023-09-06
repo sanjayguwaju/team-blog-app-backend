@@ -6,6 +6,7 @@ const cors = require('cors');
 const userRoutes = require('./routes/user-routes');
 const blogRoutes = require('./routes/blog-post-routes');
 const morgan = require('morgan');
+const helmet = require("helmet");
 
 // Server function stored in app variable
 const app = express();
@@ -25,6 +26,7 @@ mongoose
   app.use(cors());
   app.use(morgan('dev'));
   app.use(express.json());
+  app.use(helmet());
 
 // Use user routes
 app.use("/users",userRoutes);
