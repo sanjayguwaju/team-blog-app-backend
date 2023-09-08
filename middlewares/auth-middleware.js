@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const User = require('../models/user-model');
 const { body, validationResult } = require('express-validator');
+
 
 exports.verifyRefreshToken = async (req, res, next) => {
   // Get refresh token
@@ -43,7 +44,7 @@ exports.verifyAccessToken = (req, res, next) => {
 
 
 exports.validateLoginRequest = [
-  body('username').notEmpty().withMessage('Username is required'),
+  body('email').notEmpty().withMessage('Email is required'),
   body('password').notEmpty().withMessage('Password is required'),
   (req, res, next) => {
     const errors = validationResult(req);

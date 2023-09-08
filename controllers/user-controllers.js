@@ -1,6 +1,6 @@
 const User = require('../models/user-model');
 const bcrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
 exports.registerUser = async (req, res) => {
   try {
     // Hash the password
@@ -23,15 +23,9 @@ exports.registerUser = async (req, res) => {
   }
 };
 
-
-
-
-
-
-
 exports.login = async (req, res) => {
   // Find the user
-  const user = await User.findOne({ username: req.body.username });
+  const user = await User.findOne({ email: req.body.email }); 
 
   if (!user) {
     // User not found, handle the scenario here (e.g., return an error response).
@@ -56,19 +50,6 @@ exports.login = async (req, res) => {
   res.json({ accessToken });
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 exports.refreshToken = async (req, res) => {
   // Get user ID from request object
   const userId = req.userId;
@@ -89,7 +70,7 @@ exports.refreshToken = async (req, res) => {
   user.refreshToken = newRefreshToken;
   await user.save();
 
-  // Send tokens
+  //Access Token in Cookies Send tokens
   res.cookie('refreshToken', newRefreshToken, { httpOnly: true });
   res.json({ accessToken: newAccessToken });
 };
