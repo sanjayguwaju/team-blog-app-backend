@@ -33,8 +33,6 @@ yarn.lock
 yarn-error.log
 .yarn
 .yarnrc.yml
-.pnp.cjs
-.pnp.loader.mjs
 
 # npm
 package-lock.json

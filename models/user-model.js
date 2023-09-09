@@ -1,24 +1,34 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-        trim: true,
+const userSchema = new mongoose.Schema(
+    {
+        name: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true,
+            lowercase: true,
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+    refreshToken: { 
+        type: String 
+    }
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        lowercase: true,
-    },
-    password: {
-        type: String,
-        required: true,
-    },
-}); // Rules for the data we want to store
+    {
+        timestamps: true,
+    }
+);
 
-const User = mongoose.model('User', userSchema);  //users = collection banxa
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+
+
