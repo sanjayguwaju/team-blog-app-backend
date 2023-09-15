@@ -1,6 +1,9 @@
 {
   "name": "team-blog-app-backend",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=18"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
