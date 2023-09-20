@@ -2,12 +2,13 @@ const BlogPost = require('../models/blog-post-model');
 
 const createBlogPost = async (req, res) => {
   try {
-    const { title, content, author, tags } = req.body;
+    const { title, content, image, author, tags } = req.body;
     
     // Create a new blog post
     const newBlogPost = new BlogPost({
       title,
       content,
+      image,
       author,
       tags
     });
@@ -43,7 +44,7 @@ const updateBlogPost = async (req, res) => {
 
 const getAllBlogPost = async (req, res) => {
   try {
-    const allBlogPost = await BlogPost.find();
+    const allBlogPost = await BlogPost.find().populate('author').lean();
     res.status(200).send(allBlogPost);
   } catch (error) {
     res.status(500).send(error);
