@@ -44,7 +44,7 @@ const updateBlogPost = async (req, res) => {
 
 const getAllBlogPost = async (req, res) => {
   try {
-    const allBlogPost = await BlogPost.find();
+    const allBlogPost = await BlogPost.find().populate('author').lean();
     res.status(200).send(allBlogPost);
   } catch (error) {
     res.status(500).send(error);
