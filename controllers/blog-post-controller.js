@@ -70,7 +70,7 @@ const deleteBlogPost = async (req, res) => {
 
 const getblogPostById = async (req, res) => { 
   try{
-    const blogPost = await BlogPost.findById(req.params.id);
+    const blogPost = await BlogPost.findById(req.params.id).populate('author').lean();
     if(!blogPost){
       return res.status(404).send({message:'blog post not found'});
     }
