@@ -2,7 +2,7 @@ const BlogPost = require('../models/blog-post-model');
 
 const createBlogPost = async (req, res) => {
   try {
-    const { title, content, image, author, tags } = req.body;
+    const { title, content, image, author, tags, category } = req.body;
     
     // Create a new blog post
     const newBlogPost = new BlogPost({
@@ -10,7 +10,8 @@ const createBlogPost = async (req, res) => {
       content,
       image,
       author,
-      tags
+      tags,
+      category,
     });
 
     // Save the new blog post to the database
