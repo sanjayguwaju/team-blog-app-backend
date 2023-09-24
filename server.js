@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const userRoutes = require('./routes/user-routes');
 const blogRoutes = require('./routes/blog-post-routes');
+const commentRoutes = require('./routes/comment-routes');
 const morgan = require('morgan');
 const helmet = require("helmet");
 
@@ -31,6 +32,7 @@ mongoose
 // Use user routes
 app.use("/users",userRoutes);
 app.use("/blogs",blogRoutes);
+app.use("/comments",commentRoutes);
 
 // Health check endpoint
   app.get('/health', (req, res) => {
