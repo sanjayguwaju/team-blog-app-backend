@@ -4,8 +4,8 @@ const blogPostController = require('../controllers/blog-post-controller');
 const authorization = require('../middlewares/auth-middleware');
 
 blogRouter.post('/createblog', blogPostController.createBlogPost);
-blogRouter.put('/updatelblog/:id', authorization.verifyAccessToken, blogPostController.updateBlogPost);
-blogRouter.get('/getallblog', blogPostController.getAllBlogPost);
+blogRouter.put('/updateblog/:id', authorization.verifyAccessToken, blogPostController.updateBlogPost);
+blogRouter.get('/getallblogs', blogPostController.getAllBlogPost);
 blogRouter.delete('/deleteblog/:id', authorization.verifyAccessToken, blogPostController.deleteBlogPost);
 blogRouter.get('/getblogpostbyid/:id', blogPostController.getblogPostById);
 
