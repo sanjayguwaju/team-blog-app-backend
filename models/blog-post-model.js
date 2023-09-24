@@ -15,11 +15,14 @@ const blogPostSchema = new mongoose.Schema({
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+  },
+  category: {
+    type: String,
+    enum: ['technology', 'lifestyle', 'travel', 'other'],
+    default: 'other'
   },
   tags: {
     type: [String],
-    required: true
   },
   createdAt: {
     type: Date,
