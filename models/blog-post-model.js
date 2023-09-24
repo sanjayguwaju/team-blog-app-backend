@@ -10,7 +10,7 @@ const blogPostSchema = new mongoose.Schema({
     required: true
   },
   image: {
-     type: String
+    type: String
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +20,10 @@ const blogPostSchema = new mongoose.Schema({
   tags: {
     type: [String],
     required: true
+  },
+  comment: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
   },
   createdAt: {
     type: Date,
