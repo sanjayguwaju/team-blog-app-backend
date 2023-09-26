@@ -44,8 +44,11 @@ const updateBlogPost = async (req, res) => {
 };
 
 const getAllBlogPost = async (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 100;
+  const skip = (page - 1) * limit;
   try {
-    const allBlogPost = await BlogPost.find().populate('author').lean();
+    const allBlogPost = await BlogPost.find().populate('author').sort({ createdAt: -1 }).skip(skip).limit(limit).lean();
     res.status(200).send(allBlogPost);
   } catch (error) {
     res.status(500).send(error);
