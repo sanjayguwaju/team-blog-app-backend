@@ -9,23 +9,55 @@ const authMiddleware = require('../middlewares/auth-middleware');
  * @swagger
  * /users/register:
  *   post:
- *     summary: Create a new user
- *     parameters:
- *       - in: header
- *         name: authorization
- *         required: true
- *         schema:
- *           type: string
- *       - in: body
- *         name: content
- *         required: true
- *         schema:
- *           type: string
+ *     tags:
+ *       - Users
+ *     summary: Register a new user
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/RegisterUser'
+ *       required: true
  *     responses:
- *       200:
- *         description: Successfully created user
+ *       201:
+ *         description: Successfully registered the user
  *       400:
- *         description: Error creating user
+ *         description: Error during registration
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
+ *
+ * components:
+ *   schemas:
+ *     RegisterUser:
+ *       type: object
+ *       required:
+ *         - name
+ *         - email
+ *         - password
+ *       properties:
+ *         name:
+ *           type: string
+ *           example: "Apurva Manandhar"
+ *         email:
+ *           type: string
+ *           format: email
+ *           example: "apurvamanandhar@gmail.com"
+ *         password:
+ *           type: string
+ *           format: password
+ *           example: "test123@#"
+ *     Error:
+ *       type: object
+ *       properties:
+ *         message:
+ *           type: string
+ *           description: Error message
+ *         code:
+ *           type: integer
+ *           format: int32
+ *           description: Error code
  */
 
 

@@ -7,15 +7,16 @@ const authorization = require('../middlewares/auth-middleware');
  * @swagger
  * /blogs/createblog:
  *   post:
- *     summary: Create a new blog post
+ *     summary: Create a new blog posts
  *     parameters:
  *       - in: header
- *         title: authorization
- *         required: true
+ *         name: authorization
+ *         description: Authorization token
  *         schema:
  *           type: string
  *       - in: body
- *         content: content
+ *         name: content
+ *         description: Content of the blog post
  *         required: true
  *         schema:
  *           type: string
@@ -76,26 +77,18 @@ blogRouter.put('/updateblog/:id',blogPostController.updateBlogPost);
 blogRouter.get('/getallblog', blogPostController.getAllBlogPost);
 /**
  * @swagger
- * /blogs/createblog:
- *   delete:
- *     summary: delete a new blog post
- *     parameters:
- *       - in: header
- *         title: authorization
- *         required: true
- *         schema:
- *           type: string
- *       - in: body
- *         content: content
- *         required: true
- *         schema:
- *           type: string
+ * /blogs/getallblog:
+ *   get:
+ *     summary: Get all blogs
  *     responses:
  *       200:
- *         description: Successfully created blog post
+ *         description: Successfully retrieved all blogs
+ *         schema:
+ *           type: array
  *       400:
- *         description: Error creating blog post
+ *         description: Error retrieving blogs
  */
+
 blogRouter.delete('/deleteblog/:id',blogPostController.deleteBlogPost);
 /**
  * @swagger
