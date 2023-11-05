@@ -84,9 +84,7 @@ const getblogPostById = async (req, res) => {
 const getBlogPostsByUserId = async (req, res) => {
   try {
     const userId = req.params.id;
-    console.log(userId, "userId")
     const blogPosts = await BlogPost.find({ author: userId });
-    console.log(blogPosts, "blogpost")
     if (!blogPosts.length) {
       return res.status(404).send({message: 'No blog posts found for this user' });
     }
