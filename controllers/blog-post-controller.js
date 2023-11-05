@@ -81,11 +81,26 @@ const getblogPostById = async (req, res) => {
   }
 }; 
 
+const getBlogPostsByUserId = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    console.log(userId, "userId")
+    const blogPosts = await BlogPost.find({ author: userId });
+    console.log(blogPosts, "blogpost")
+    if (!blogPosts.length) {
+      return res.status(404).send({message: 'No blog posts found for this user' });
+    }
+    res.status(200).json(blogPosts);
+  } catch (error) {
+    res.status(500).send({error:'Error fetching blog posts'});
+  }
+};
 
 module.exports = {
   createBlogPost,
   updateBlogPost,
   getAllBlogPost,
   deleteBlogPost,
-  getblogPostById
+  getblogPostById,
+  getBlogPostsByUserId
 };
