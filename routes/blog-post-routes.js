@@ -113,6 +113,6 @@ blogRouter.delete('/deleteblog/:id',blogPostController.deleteBlogPost);
  *         description: Error creating blog post
  */
 blogRouter.get('/getblogpostbyid/:id', blogPostController.getblogPostById);
-blogRouter.get('/getblogpostbyuserid/:id', blogPostController.getBlogPostsByUserId);
+blogRouter.get('/get-blog-post-by-user-id/:id', blogPostController.getBlogPostsByUserId);
 
 module.exports = blogRouter;
