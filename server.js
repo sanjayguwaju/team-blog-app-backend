@@ -8,8 +8,9 @@ const blogRoutes = require('./routes/blog-post-routes');
 const commentRoutes = require('./routes/comment-routes');
 const morgan = require('morgan');
 const helmet = require("helmet");
+const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-const specs = require('./swaggerConfig');
+const swaggerDefinition = require('./swaggerConfig');
 
 
 // Server function stored in app variable
@@ -32,6 +33,11 @@ mongoose
   app.use(express.json());
   app.use(helmet());
 
+  const specs = swaggerJsdoc({
+    swaggerDefinition,
+    apis: ['./routes/*.js'],
+  });
+
   //Swagger
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
@@ -45,7 +51,7 @@ app.use("/comments",commentRoutes);
   res.status(200).send('API is working fine');
   });
 
-// Start server in the port 3000
-app.listen(3000, () => {
+// Start server in the PORT
+app.listen(process.env.PORT, () => {
     console.log('Server is listening on port 3000');
 });
