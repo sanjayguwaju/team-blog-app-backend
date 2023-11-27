@@ -13,7 +13,7 @@ const userRoutes = require('./routes/user-routes');
 const commentRoutes = require('./routes/comment-routes');
 const swaggerDefinition = require('./swaggerConfig');
 
-// Server function stored in app variable
+// Intialize the express server
 const app = express();
 
 // Connect to database
