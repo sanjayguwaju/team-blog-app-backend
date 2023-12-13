@@ -3,17 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const userRoutes = require('./routes/user-routes');
-const blogRoutes = require('./routes/blog-post-routes');
-const commentRoutes = require('./routes/comment-routes');
 const morgan = require('morgan');
 const helmet = require("helmet");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = require('./swaggerConfig');
+const blogRoutes = require('./routes/blog-post-routes');
+const userRoutes = require('./routes/user-routes');
+const commentRoutes = require('./routes/comment-routes');
+const swaggerDefinition = require('./swaggerConfig');
 
-
-// Server function stored in app variable
+// Intialize the express server
 const app = express();
 
 // Connect to database

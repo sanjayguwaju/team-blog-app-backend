@@ -94,11 +94,28 @@ const getBlogPostsByUserId = async (req, res) => {
   }
 };
 
+const searchBlogPosts = async (req, res) => {
+  try {
+    const query = req.query.query;
+    const blogPosts = await BlogPost.find({
+      $text: {
+        $search: query,
+        $caseSensitive: false
+      }
+    }, { score: { $meta: "textScore" } }).sort({ score: { $meta: "textScore" } });
+
+    res.status(200).json(blogPosts);
+  } catch (err) {
+    res.status(400).json({ error: 'Error retrieving blog posts' });
+  }
+};
+
 module.exports = {
   createBlogPost,
   updateBlogPost,
   getAllBlogPost,
   deleteBlogPost,
   getblogPostById,
-  getBlogPostsByUserId
+  getBlogPostsByUserId,
+  searchBlogPosts,
 };
