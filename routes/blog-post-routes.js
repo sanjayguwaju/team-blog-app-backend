@@ -26,9 +26,8 @@ const authorization = require('../middlewares/auth-middleware');
  *       400:
  *         description: Error creating blog post
  */
-
-
 blogRouter.post('/createblog', blogPostController.createBlogPost);
+
 /**
  * @swagger
  * /blogs/updateblog:
@@ -52,6 +51,7 @@ blogRouter.post('/createblog', blogPostController.createBlogPost);
  *         description: Error updating blog post
  */
 blogRouter.put('/updateblog/:id',blogPostController.updateBlogPost);
+
 /**
  * @swagger
  * /blogs/createblog:
@@ -75,6 +75,7 @@ blogRouter.put('/updateblog/:id',blogPostController.updateBlogPost);
  *         description: Error creating blog post
  */
 blogRouter.get('/getallblog', blogPostController.getAllBlogPost);
+
 /**
  * @swagger
  * /blogs/getallblog:
@@ -88,8 +89,8 @@ blogRouter.get('/getallblog', blogPostController.getAllBlogPost);
  *       400:
  *         description: Error retrieving blogs
  */
-
 blogRouter.delete('/deleteblog/:id',blogPostController.deleteBlogPost);
+
 /**
  * @swagger
  * /blogs/getblogpostbyid/{id}:
@@ -113,6 +114,7 @@ blogRouter.delete('/deleteblog/:id',blogPostController.deleteBlogPost);
  *         description: Error creating blog post
  */
 blogRouter.get('/getblogpostbyid/:id', blogPostController.getblogPostById);
+
 blogRouter.get('/get-blog-post-by-user-id/:id', blogPostController.getBlogPostsByUserId);
 
 /**
@@ -133,6 +135,5 @@ blogRouter.get('/get-blog-post-by-user-id/:id', blogPostController.getBlogPostsB
  *         description: Error retrieving blog posts
  */
 blogRouter.get('/search', blogPostController.searchBlogPosts);
-
 
 module.exports = blogRouter;

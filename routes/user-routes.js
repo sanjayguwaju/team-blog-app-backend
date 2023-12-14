@@ -3,8 +3,6 @@ const userRouter = express.Router(); // Router bhaneko sub route ho haii like yo
 const userController = require('../controllers/user-controllers');
 const authMiddleware = require('../middlewares/auth-middleware');
 
-
-
 /**
  * @swagger
  * /users/register:
@@ -59,10 +57,8 @@ const authMiddleware = require('../middlewares/auth-middleware');
  *           format: int32
  *           description: Error code
  */
-
-
-
 userRouter.post('/register', authMiddleware.validateUserRegistration, userController.registerUser);
+
 /**
  * @swagger
  * /users/login:
@@ -86,6 +82,7 @@ userRouter.post('/register', authMiddleware.validateUserRegistration, userContro
  *         description: Error Logging in
  */
 userRouter.post('/login', authMiddleware.validateLoginRequest, userController.login);
+
 /**
  * @swagger
  * /users/token:
@@ -109,6 +106,7 @@ userRouter.post('/login', authMiddleware.validateLoginRequest, userController.lo
  *         description: Error creating new token
  */
 userRouter.post('/token', authMiddleware.verifyRefreshToken, userController.refreshToken);
+
 /**
  * @swagger
  * /users/logout:
@@ -132,6 +130,7 @@ userRouter.post('/token', authMiddleware.verifyRefreshToken, userController.refr
  *         description: Error logging out
  */
 userRouter.post('/logout', authMiddleware.verifyAccessToken, userController.logout);
+
 /**
  * @swagger
  * /users/getalluser:
@@ -155,6 +154,7 @@ userRouter.post('/logout', authMiddleware.verifyAccessToken, userController.logo
  *         description: Error 
  */
 userRouter.get('/getalluser', userController.getAllUsers);
+
 /**
  * @swagger
  * /users/getuserbyid/{id}:
@@ -178,6 +178,7 @@ userRouter.get('/getalluser', userController.getAllUsers);
  *         description: Error 
  */
 userRouter.get('/getuserbyid/:id', userController.getUserById);
+
 /**
  * @swagger
  * /users/deleteuser/{id}:
@@ -201,6 +202,7 @@ userRouter.get('/getuserbyid/:id', userController.getUserById);
  *         description: Error 
  */
 userRouter.delete('/deleteuser/:id', userController.deleteUser);
+
 /**
  * @swagger
  * /users/updateuser/{id}:
@@ -224,7 +226,5 @@ userRouter.delete('/deleteuser/:id', userController.deleteUser);
  *         description: Error 
  */
 userRouter.put('/updateuser/:id', userController.updateUser);
-
-
 
 module.exports = userRouter;
