@@ -11,7 +11,6 @@ const swaggerDefinition = require('./swaggerConfig');
 const blogRoutes = require('./routes/blog-post-routes');
 const userRoutes = require('./routes/user-routes');
 const commentRoutes = require('./routes/comment-routes');
-const swaggerDefinition = require('./swaggerConfig');
 
 // Intialize the express server
 const app = express();
