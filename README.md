@@ -17,4 +17,4 @@ TeamBlog is a collaborative blogging platform designed for teams to share and ma
 
     ```bash
     git clone https://github.com/your-username/teamblog-app.git
-    cd teamblog-app
+    cd teamblog-a
