@@ -4,6 +4,7 @@ TeamBlog is a collaborative blogging platform designed for teams to share and ma
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
@@ -11,10 +12,17 @@ TeamBlog is a collaborative blogging platform designed for teams to share and ma
 - [Contributing](#contributing)
 - [License](#license)
 
+## Prerequisites
+
+This project requires Node.js 18. Make sure you have it installed before moving on.
+
 ## Installation
 
 1. **Clone the repository:**
 
     ```bash
     git clone https://github.com/your-username/teamblog-app.git
-    cd teamblog-a
+    cd teamblog-app
+    ```
+
+Please replace `your-username` with your actual GitHub username.
