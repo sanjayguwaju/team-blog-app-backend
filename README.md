@@ -26,3 +26,11 @@ This project requires Node.js 18. Make sure you have it installed before moving 
     ```
 
 Please replace `your-username` with your actual GitHub username.
+
+## Usage
+
+After installation, you can start the application with:
+
+```bash
+npm start
+
