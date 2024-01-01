@@ -1,6 +1,6 @@
 # TeamBlog App
 
-TeamBlog is a collaborative blogging platform designed for teams to share and manage their content effectively.
+TeamBlog is a collaborative blogging platform designed for teams to share and manage their content effectively. It helps to share the knowledge about technical world.
 
 ## Homepage
 
