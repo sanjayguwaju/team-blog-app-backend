@@ -143,8 +143,9 @@ For any questions or comments, please contact us at:
 
 | Name | Image | Email |
 | --- | --- | --- |
-| John Doe | ![John Doe](https://www.example.com/john_doe.png) | john.doe@example.com |
-| Jane Doe | ![Jane Doe](https://www.example.com/jane_doe.png) | jane.doe@example.com |
+| Sanjay Guwaju | ![John Doe](https://www.example.com/john_doe.png) | john.doe@example.com |
+| Kushal Bajracharya | ![Jane Doe](https://www.example.com/jane_doe.png) | jane.doe@example.com |
+| Smriti Manandhar | ![Jane Doe](https://www.example.com/jane_doe.png) | jane.doe@example.com |
 
 ## License
 
