@@ -141,11 +141,11 @@ For any questions or comments, please contact us at:
 
 ## Contributors
 
-| Name | Image | Email |
-| --- | --- | --- |
-| Sanjay Guwaju | ![Sanjay Guwaju](https://www.example.com/john_doe.png) | john.doe@example.com |
-| Kushal Bajracharya | ![Kushal Bajracharya](https://www.example.com/jane_doe.png) | jane.doe@example.com |
-| Smriti Manandhar | ![Smriti Manandhar](https://www.example.com/jane_doe.png) | jane.doe@example.com |
+| Name | Image | Email | Website |
+| --- | --- | --- | --- |
+| Sanjay Guwaju | ![Sanjay Guwaju](https://www.example.com/sanjay.png) | sanjay@example.com | [Website](https://sanjay-website.com) |
+| Kushal Bajracharya | ![Kushal Bajracharya](https://www.example.com/kushal.png) | kushal@example.com | [Website](https://kushal-website.com) |
+| Smriti Manandhar | ![Smriti Manandhar](https://www.example.com/smriti.png) | smriti@example.com | [Website](https://smriti-website.com) |
 
 ## License
 
