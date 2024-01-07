@@ -26,6 +26,7 @@ exports.registerUser = async (req, res) => {
 exports.login = async (req, res) => {
   // Find the user
   const user = await User.findOne({ email: req.body.email }); 
+  console.log("user --->", user);
 
   if (!user) {
     // User not found, handle the scenario here (e.g., return an error response).
@@ -47,7 +48,12 @@ exports.login = async (req, res) => {
 
   // Send tokens
   res.cookie('refreshToken', refreshToken, { httpOnly: true });
-  res.json({ accessToken });
+  res.json({ 
+    accessToken,
+    userId: user?._id,
+    email: user?.email,
+    username: user?.name
+  });
 };
 
 exports.refreshToken = async (req, res) => {
