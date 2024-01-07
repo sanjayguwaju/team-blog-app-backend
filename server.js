@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
-const helmet = require("helmet");
+const helmet = require('helmet');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDefinition = require('./swaggerConfig');
@@ -24,34 +24,34 @@ mongoose
   })
   .then(() => console.log('DB Connection Successfull!'))
   .catch((err) => {
-    console.log("DB Connection Error :",err);
+    console.log('DB Connection Error :',err);
   });
 
-  // Parse JSON request bodies
-  app.use(cors());
-  app.use(morgan('dev'));
-  app.use(express.json());
-  app.use(helmet());
+// Parse JSON request bodies
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
+app.use(helmet());
 
-  const specs = swaggerJsdoc({
-    swaggerDefinition,
-    apis: ['./routes/*.js'],
-  });
+const specs = swaggerJsdoc({
+  swaggerDefinition,
+  apis: ['./routes/*.js'],
+});
 
-  //Swagger
-  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+//Swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Use user routes
-app.use("/users",userRoutes);
-app.use("/blogs",blogRoutes);
-app.use("/comments",commentRoutes);
+app.use('/users',userRoutes);
+app.use('/blogs',blogRoutes);
+app.use('/comments',commentRoutes);
 
 // Health check endpoint
-  app.get('/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.status(200).send('API is working fine');
-  });
+});
 
 // Start server in the PORT
 app.listen(process.env.PORT, () => {
-    console.log('Server is listening on port 3000');
+  console.log('Server is listening on port 3000');
 });
