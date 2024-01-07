@@ -9,6 +9,7 @@
         "curly": ["error"],
         "camelcase": ["error"],
         "no-trailing-spaces": ["error"],
-        "eol-last": ["error", "always"]
+        "eol-last": ["error", "always"],
+        "import/no-unresolved": "off"
     }
 }
