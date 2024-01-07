@@ -7,11 +7,11 @@ const morgan = require('morgan');
 const helmet = require("helmet");
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+const swaggerDefinition = require('./swaggerConfig');
 
 const blogRoutes = require('./routes/blog-post-routes');
 const userRoutes = require('./routes/user-routes');
 const commentRoutes = require('./routes/comment-routes');
-const swaggerDefinition = require('./swaggerConfig');
 
 // Intialize the express server
 const app = express();
