@@ -1,5 +1,6 @@
 const userPaths = require('./docs/userDocsPaths');
-const blogPaths = require('./docs/blogDocsPaths')
+const blogPaths = require('./docs/blogDocsPaths');
+const commentPaths = require('./docs/commentsDocsPaths');
 const components = require('./docs/components/schemas/swaggerComponents');
 
 const swaggerDefinition = {
@@ -19,7 +20,7 @@ const swaggerDefinition = {
       description: 'Development server'
     }
   ],
-  paths:{...userPaths,...blogPaths},
+  paths:{...userPaths,...blogPaths,...commentPaths},
   components,
 };
 
