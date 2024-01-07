@@ -1,5 +1,7 @@
-// Import required packages
+// Import environment configuration
 require('dotenv').config();
+
+// Import external packages
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,8 +9,11 @@ const morgan = require('morgan');
 const helmet = require('helmet');
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
+
+// Import local configurations
 const swaggerDefinition = require('./swaggerConfig');
 
+// Import routes
 const blogRoutes = require('./routes/blog-post-routes');
 const userRoutes = require('./routes/user-routes');
 const commentRoutes = require('./routes/comment-routes');
