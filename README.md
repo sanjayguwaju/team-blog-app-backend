@@ -143,7 +143,7 @@ For any questions or comments, please contact us at:
 
 | Name | Image | Email | Website |
 | --- | --- | --- | --- |
-| Sanjay Guwaju | ![Sanjay Guwaju](https://www.example.com/sanjay.png) | sanjay@example.com | [Website](https://sanjay-website.com) |
+| Sanjay Guwaju | ![Sanjay Guwaju](https://www.example.com/sanjay.png) | www.sanjayguwaju.com.np| [Website](https://www.sanjayguwaju.com.np) |
 | Kushal Bajracharya | ![Kushal Bajracharya](https://www.example.com/kushal.png) | kushal@example.com | [Website](https://kushal-website.com) |
 | Smriti Manandhar | ![Smriti Manandhar](https://www.example.com/smriti.png) | smriti@example.com | [Website](https://smriti-website.com) |
 
