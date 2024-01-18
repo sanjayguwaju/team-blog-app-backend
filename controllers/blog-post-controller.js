@@ -120,6 +120,92 @@ const searchBlogPosts = async (req, res) => {
   }
 };
 
+const addLike = async (req, res) => {
+  const postId = req.params.id;
+  const userId = req.user.id; // Assuming the user's id is available in req.user.id
+
+  try {
+    // Find the blog post and add the user's id to the likes array
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // Check if the user has already liked the post
+    if (post.likes.includes(userId)) {
+      return res.status(400).json({ message: 'User has already liked this post' });
+    }
+
+    // Add the user's id to the likes array
+    post.likes.push(userId);
+    await post.save();
+
+    res.status(200).json({ message: 'Like added successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred', error });
+  }
+}
+
+const getLikesCount = async (req, res) => {
+  const postId = req.params.id;
+
+  try {
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    const likesCount = post.likes.length;
+
+    res.status(200).json({ likesCount });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred', error });
+  }
+};
+
+const removeLike = async (req, res)=> {
+  const postId = req.params.id;
+  const userId = req.user.id; // Assuming the user's id is available in req.user.id
+
+  try {
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // Check if the user has not liked the post
+    const likeIndex = post.likes.indexOf(userId);
+    if (likeIndex === -1) {
+      return res.status(400).json({ message: 'User has not liked this post' });
+    }
+
+    // Remove the user's id from the likes array
+    post.likes.splice(likeIndex, 1);
+    await post.save();
+
+    res.status(200).json({ message: 'Like removed successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred', error });
+  }
+}
+
+const getDislikesCount = async (req, res) => {
+  const postId = req.params.id;
+
+  try {
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    const dislikesCount = post.dislikes.length;
+
+    res.status(200).json({ dislikesCount });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred', error });
+  }
+};
+
 module.exports = {
   createBlogPost,
   updateBlogPost,
@@ -128,4 +214,8 @@ module.exports = {
   getblogPostById,
   getBlogPostsByUserId,
   searchBlogPosts,
+  addLike,
+  getLikesCount,
+  removeLike,
+  getDislikesCount,
 };
