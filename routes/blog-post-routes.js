@@ -10,5 +10,9 @@ blogRouter.delete('/deleteblog/:id',blogPostController.deleteBlogPost);
 blogRouter.get('/getblogpostbyid/:id', blogPostController.getblogPostById);
 blogRouter.get('/get-blog-post-by-user-id/:id', blogPostController.getBlogPostsByUserId);
 blogRouter.get('/search', blogPostController.searchBlogPosts);
+blogRouter.get('/:id/like',blogPostController.addLike);
+blogRouter.get('/:id/likes-count', blogPostController.getLikesCount);
+blogRouter.post('/:id/dislike', blogPostController.removeLike);
+blogRouter.post('/:id/dislikes-count', blogPostController.getDislikesCount);
 
 module.exports = blogRouter;
