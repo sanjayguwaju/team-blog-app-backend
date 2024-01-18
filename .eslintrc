@@ -1,14 +1,19 @@
 {
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
     "rules": {
         "indent": ["error", 2],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "double"],
         "semi": ["error", "always"],
         "no-unused-vars": ["error"],
-        "no-console": ["warn"],
+        "no-console": "off", // turn off 'no-console' rule
         "eqeqeq": ["error"],
         "curly": ["error"],
         "camelcase": ["error"],
         "no-trailing-spaces": ["error"],
-        "eol-last": ["error", "always"]
+        "eol-last": ["error", "always"],
+        "import/no-unresolved": "off"
     }
 }
