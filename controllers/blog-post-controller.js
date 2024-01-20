@@ -122,7 +122,7 @@ const searchBlogPosts = async (req, res) => {
 
 const addLike = async (req, res) => {
   const postId = req.params.id;
-  const userId = req.user.id; // Assuming the user's id is available in req.user.id
+  const userId = req.body.userId; // Assuming the user's id is available in req.user.id
 
   try {
     // Find the blog post and add the user's id to the likes array
