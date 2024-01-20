@@ -19,8 +19,8 @@ const blogPostSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ['technology', 'lifestyle', 'travel', 'other'],
-    default: 'other'
+    enum: ['technology', 'lifestyle', 'travel', 'others'],
+    default: 'others'
   },
   tags: {
     type: [String],
@@ -36,6 +36,10 @@ const blogPostSchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  likes: {
+    type: [String],
+    default: []
   }
 });
 
