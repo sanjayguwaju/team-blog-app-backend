@@ -164,8 +164,8 @@ const getLikesCount = async (req, res) => {
 };
 
 const removeLike = async (req, res)=> {
-  const postId = req.params.id;
-  const userId = req.user.id; // Assuming the user's id is available in req.user.id
+  const postId = req.params?.id;
+  const userId = req.body?.userId; // Assuming the user's id is available in req.user.id
 
   try {
     const post = await BlogPost.findById(postId);
@@ -174,13 +174,13 @@ const removeLike = async (req, res)=> {
     }
 
     // Check if the user has not liked the post
-    const likeIndex = post.likes.indexOf(userId);
+    const likeIndex = post.likes?.indexOf(userId);
     if (likeIndex === -1) {
       return res.status(400).json({ message: 'User has not liked this post' });
     }
 
     // Remove the user's id from the likes array
-    post.likes.splice(likeIndex, 1);
+    post.likes?.splice(likeIndex, 1);
     await post.save();
 
     res.status(200).json({ message: 'Like removed successfully' });
