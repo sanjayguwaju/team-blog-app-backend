@@ -189,6 +189,37 @@ const removeLike = async (req, res)=> {
   }
 }
 
+const addDisLike = async (req, res) => {
+  const postId = req.params.id;
+  const userId = req.body.userId; // Assuming the user's id is available in req.user.id
+
+  try {
+    // Find the blog post and add the user's id to the likes array
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // Check if the user has already disliked the post
+    if (post.disLikes.includes(userId)) {
+      return res.status(400).json({ message: 'User has already disliked this post' });
+    }
+
+    // Check if the user has liked the post
+    if (post.likes.includes(userId)) {
+      return res.status(400).json({ message: 'User has already liked this post. Please remove the like first to dislike post' });
+    }
+
+    // Add the user's id to the likes array
+    post.disLikes.push(userId);
+    await post.save();
+
+    res.status(200).json({ message: 'Disliked post successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'An error occurred', error });
+  }
+}
+
 const getDislikesCount = async (req, res) => {
   const postId = req.params.id;
 
@@ -217,5 +248,6 @@ module.exports = {
   addLike,
   getLikesCount,
   removeLike,
+  addDisLike,
   getDislikesCount,
 };
