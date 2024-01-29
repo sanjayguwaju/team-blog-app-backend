@@ -216,7 +216,7 @@ const addDisLike = async (req, res) => {
 
     res.status(200).json({ message: 'Disliked post successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'An error occurred', error });
+    res.status(500).json({ message: 'Sorry, due to unknown reasons you cannot dislike the post', error });
   }
 }
 
