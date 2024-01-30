@@ -40,6 +40,10 @@ const blogPostSchema = new mongoose.Schema({
   likes: {
     type: [String],
     default: []
+  },
+  disLikes: {
+    type: [String],
+    default: []
   }
 });
 
