@@ -207,7 +207,7 @@ const addDisLike = async (req, res) => {
 
     // Remove like if user has already liked the post
     if (post.likes?.includes(userId)) {
-      const likeIndex = post.likes.indexOf(userId);
+      const likeIndex = post.likes?.indexOf(userId);
       post.likes?.splice(likeIndex, 1);
       await post.save();
     }
