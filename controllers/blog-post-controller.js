@@ -205,18 +205,20 @@ const addDisLike = async (req, res) => {
       return res.status(400).json({ message: 'User has already disliked this post' });
     }
 
-    // Check if the user has liked the post
+    // Remove like if user has already liked the post
     if (post.likes.includes(userId)) {
-      return res.status(400).json({ message: 'User has already liked this post. Please remove the like first to dislike post' });
+      const likeIndex = post.likes.indexOf(userId);
+      post.likes?.splice(likeIndex, 1);
+      await post.save();
     }
 
-    // Add the user's id to the likes array
+    // Add the user's id to the dislikes array
     post.disLikes.push(userId);
     await post.save();
 
     res.status(200).json({ message: 'Disliked post successfully' });
   } catch (error) {
-    res.status(500).json({ message: 'Sorry, due to unknown reasons you cannot dislike the post', error });
+    res.status(500).json({ message: 'An error occurred while trying to dislike the post. We are working to fix this. Please try again later.', error });
   }
 }
 
