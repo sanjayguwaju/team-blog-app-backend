@@ -223,7 +223,7 @@ const addDisLike = async (req, res) => {
 }
 
 const getDislikesCount = async (req, res) => {
-  const postId = req.params.id;
+  const postId = req.params?.id;
 
   try {
     const post = await BlogPost.findById(postId);
@@ -231,11 +231,11 @@ const getDislikesCount = async (req, res) => {
       return res.status(404).json({ message: 'Post not found' });
     }
 
-    const dislikesCount = post.dislikes.length;
+    const dislikesCount = post?.disLikes?.length;
 
     res.status(200).json({ dislikesCount });
   } catch (error) {
-    res.status(500).json({ message: 'An error occurred', error });
+    res.status(500).json({ message: 'Sorry, due to unknown reasons we cannot update  the dislike count on the post', error });
   }
 };
 
