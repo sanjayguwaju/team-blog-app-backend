@@ -229,7 +229,7 @@ const getDislikesCount = async (req, res) => {
       return res.status(404).json({ message: 'Post not found' });
     }
 
-    const dislikesCount = post.disLikes?.length;
+    const dislikesCount = post?.disLikes?.length;
 
     res.status(200).json({ dislikesCount });
   } catch (error) {
