@@ -239,6 +239,32 @@ const getDislikesCount = async (req, res) => {
   }
 };
 
+const removeDislike = async (req, res) => {
+  const postId = req.params?.id;
+  const userId = req.body?.userId; // Assuming the user's id is available in req.user.id
+
+  try {
+    const post = await BlogPost.findById(postId);
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    // Check if the user has not disliked the post
+    const dislikeIndex = post?.disLikes?.indexOf(userId);
+    if (dislikeIndex === -1) {
+      return res.status(400).json({ message: 'User has not disliked this post' });
+    }
+
+    // Remove the user's id from the dislikes array
+    post?.disLikes?.splice(dislikeIndex, 1);
+    await post.save();
+
+    res.status(200).json({ message: 'Dislike removed successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Sorry, due to unknown reasons we cannot remove the dislike count on the post', error });
+  }
+}                                                                                                                                                                                                                                            
+
 module.exports = {
   createBlogPost,
   updateBlogPost,
@@ -252,4 +278,5 @@ module.exports = {
   removeLike,
   addDisLike,
   getDislikesCount,
+  removeDislike,
 };

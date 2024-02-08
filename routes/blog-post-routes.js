@@ -15,5 +15,7 @@ blogRouter.get('/:id/likes-count', blogPostController.getLikesCount);
 blogRouter.post('/:id/dislike', blogPostController.removeLike);
 blogRouter.post('/:id/add-dislike',blogPostController.addDisLike);
 blogRouter.get('/:id/dislikes-count', blogPostController.getDislikesCount);
+blogRouter.post('/:id/removedislike', blogPostController.removeDislike);
+
 
 module.exports = blogRouter;
